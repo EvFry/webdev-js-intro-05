@@ -8,9 +8,9 @@ const todos = [
     "Rake the leaves",
 ];
 
-// Declare mutable variables without assigning values
-let shiftValue;  // Mutable variable for the first value to be removed
-let popValue;    // Mutable variable for the last value to be removed
+// Declare mutable variables for shift and pop values
+let shiftValue;  // To store the first value removed
+let popValue;    // To store the last value removed
 
 // References to DOM elements for output
 const answerOneEl = document.getElementById("answer-one");
@@ -18,67 +18,75 @@ const answerTwoEl = document.getElementById("answer-two");
 const answerThreeEl = document.getElementById("answer-three");
 const answerFourEl = document.getElementById("answer-four");
 const answerFiveEl = document.getElementById("answer-five");
+const answerSixEl = document.getElementById("answer-six");
 const submissionBtn = document.getElementById("submission-btn");
 
+// Function to update the first output (Todos list)
 function updateAnswerOne() {
-    // Output the todo array
-    answerOneEl.textContent = `Todos: ${todos.join(", ")}`;
+    answerOneEl.textContent = todos.join(", ");
 }
 
+// Function to output the third value in the todo array
 function updateAnswerTwo() {
-    // Output the third value in the todo array
-    answerTwoEl.textContent = `Third Todo: ${todos[2]}`;
+    answerTwoEl.textContent = todos[2]; // The third element (index 2)
 }
 
+// Function to remove the last value and store it in popValue
 function removeLastValue() {
-    // Remove the last value of the array and store it in popValue
     popValue = todos.pop();
 }
 
+// Function to update the array display after removing the last value
 function updateAnswerThree() {
-    // Output the todo array after removing the last value
-    answerThreeEl.textContent = `Updated Todos: ${todos.join(", ")}`;
+    answerThreeEl.textContent = todos.join(", ");
 }
 
+// Function to reverse the todo array
 function reverseTodoList() {
-    // Reverse the todo array
     todos.reverse();
 }
 
+// Function to update the array display after reversing it
 function updateAnswerFour() {
-    // Output the reversed todo array
-    answerFourEl.textContent = `Reversed Todos: ${todos.join(", ")}`;
+    answerFourE1.textContent = todos.join(", ");
 }
 
+// Function to remove the first value and store it in shiftValue
 function removeFirstValue() {
-    // Remove the first value of the array and store it in shiftValue
     shiftValue = todos.shift();
 }
 
+// Function to add shiftValue and popValue to the end of the todo array
 function addShiftAndPopValues() {
-    // Add shiftValue and popValue to the end of the todo array in that order
     todos.push(shiftValue, popValue);
 }
 
+// Function to update the final todos list after adding shift and pop values
 function updateAnswerFive() {
-    // Output the todo array after modifying it
-    answerFiveEl.textContent = `Final Todos: ${todos.join(", ")}`;
+    answerFivel.textContent = todos.join(", ");
 }
 
+// Function to output the final todos list in answer-six
+function updateAnswerSix() {
+    answerSixEl.textContent = todos.join(", ");
+}
+
+// Function to render the output after all operations are performed
 function render() {
-    // Perform the required steps and update the outputs
-    updateAnswerOne(); // Step 1: Output the initial todos
-    updateAnswerTwo(); // Step 2: Output the third value
-    removeLastValue(); // Step 3: Remove the last value and store it
-    updateAnswerThree(); // Step 4: Output the array after removal
-    reverseTodoList(); // Step 5: Reverse the array
-    updateAnswerFour(); // Step 6: Output the reversed array
-    removeFirstValue(); // Step 7: Remove the first value and store it
-    addShiftAndPopValues(); // Step 8: Add shiftValue and popValue back
-    updateAnswerFive(); // Step 9: Output the final array
+    updateAnswerOne();      // Output the initial todos list
+    updateAnswerTwo();      // Output the third todo
+    removeLastValue();      // Remove the last value and store in popValue
+    updateAnswerThree();    // Output the todos list after removal
+    reverseTodoList();      // Reverse the array
+    updateAnswerFour();     // Output the reversed todos list
+    removeFirstValue();     // Remove the first value and store in shiftValue
+    addShiftAndPopValues(); // Add shiftValue and popValue to the end
+    updateAnswerFive();     // Output the final todos list
+    updateAnswerSix();      // Final output for todos after all operations
 }
 
-// Event listener for the submission button
+// Event listener for the button to trigger the render function
 submissionBtn.addEventListener("click", function () {
-    render();
+    render(); // Call render function when the button is clicked
 });
+
