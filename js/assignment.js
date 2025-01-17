@@ -48,7 +48,7 @@ function reverseTodoList() {
 
 // Function to update the array display after reversing it
 function updateAnswerFour() {
-    answerFourE1.textContent = todos.join(", ");
+    answerFourEl.textContent = todos.join(", ");
 }
 
 // Function to remove the first value and store it in shiftValue
@@ -63,7 +63,7 @@ function addShiftAndPopValues() {
 
 // Function to update the final todos list after adding shift and pop values
 function updateAnswerFive() {
-    answerFivel.textContent = todos.join(", ");
+    answerFiveEl.textContent = todos.join(", ");
 }
 
 // Function to output the final todos list in answer-six
